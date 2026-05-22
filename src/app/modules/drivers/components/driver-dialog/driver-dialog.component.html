@@ -1,0 +1,35 @@
+<p-dialog header="Add Driver" [(visible)]="visible" [modal]="true" [style]="{ width: '450px' }">
+
+    <form [formGroup]="driverForm">
+
+        <div class="field mb-3">
+            <label>Name</label>
+
+            <input pInputText formControlName="name" class="w-full">
+        </div>
+
+        <div class="field mb-3">
+            <label>Mobile</label>
+
+            <input pInputText formControlName="mobile" class="w-full">
+        </div>
+
+        <div class="field mb-3">
+            <label>License</label>
+
+            <input pInputText formControlName="license" class="w-full">
+        </div>
+
+    </form>
+
+    <ng-template pTemplate="footer">
+
+        <p-button label="Cancel" severity="secondary">
+        </p-button>
+
+        <p-button label="Save" (onClick)="save()">
+        </p-button>
+
+    </ng-template>
+
+</p-dialog>

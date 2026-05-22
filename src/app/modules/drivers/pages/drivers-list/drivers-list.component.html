@@ -1,0 +1,55 @@
+<p-card header="Drivers">
+
+  <p-toolbar styleClass="mb-3">
+
+    <div class="p-toolbar-group-start">
+      <p-button
+        label="Add Driver"
+        icon="pi pi-plus"
+        (onClick)="driverDialog.visible = true">
+      </p-button>
+    </div>
+
+    <div class="p-toolbar-group-end">
+      <input
+        pInputText
+        placeholder="Search Driver">
+    </div>
+
+  </p-toolbar>
+
+  <p-table
+    [value]="drivers"
+    [paginator]="true"
+    [rows]="5"
+    responsiveLayout="scroll">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>License</th>
+        <th>Status</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-driver>
+      <tr>
+        <td>{{ driver.name }}</td>
+        <td>{{ driver.mobile }}</td>
+        <td>{{ driver.license }}</td>
+        <td>
+          <p-tag
+            [value]="driver.status"
+            severity="success">
+          </p-tag>
+        </td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+
+</p-card>
+
+<!-- Driver Dialog -->
+<app-driver-dialog #driverDialog></app-driver-dialog>
